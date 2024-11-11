@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="config.controller.ConfigDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        titleAlignment="Center"
+    >
+        <GenericTile
+            id="_IDGenGenericTile1"
+            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+            header="Material Status"
+            press="onPressStatus"
+        >
+            <TileContent
+                id="_IDGenTileContent1"
+                width="140px"
+            >
+                <ImageContent src="sap-icon://message-success" />
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile
+            id="_IDGenGenericTile3"
+            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+            header="Storage Location"
+            press="onPressSloc"
+        >
+            <TileContent
+                id="_IDGenTileContent33"
+                width="140px"
+            >
+                <ImageContent src="sap-icon://SAP-icons-TNT/data-store" />
+            </TileContent>
+        </GenericTile>
+        <GenericTile
+            id="_IDGenGenericTile2"
+            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+            header="Material Category"
+            press="onPressMGroup"
+        >
+            <TileContent
+                id="_IDGenTileContent2"
+                width="140px"
+            >
+                <ImageContent src="sap-icon://sap-box" />
+            </TileContent>
+        </GenericTile>
+    </Page>
+</mvc:View>

@@ -1,0 +1,4 @@
+ID,Type,StorageLocation_LocationID,Usability,Zcode
+CAT01,A,LOC01,Nuts bolts,BL
+CAT02,B,LOC02,Brass fittings,FI
+CAT03,C,LOC03,Steel components,SC

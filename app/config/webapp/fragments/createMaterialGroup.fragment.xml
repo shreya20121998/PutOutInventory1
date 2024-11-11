@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="addMaterialStatusDialog1"
+        class="sapUiContentPadding"
+        contentWidth="20%"
+        title="Add Material Group"
+        afterClose="_handleValueHelpClose1">
+
+        <VBox>
+            <!-- <Label id="_IDGenLabel17" text="Category ID :" />
+            <Input id="idField" liveChange="inputHandler" placeholder="Enter ID" /> -->
+            <Label id="_IDGenLabel119" text="Category" required="true" />
+            <Input id="typeField" liveChange="inputHandler" placeholder="Enter Category" />
+            <Label id="_IDGenLabel182" text="Location ID" required="true" />
+            <Input id="locationIdField" liveChange="inputHandler" placeholder="Select Location ID" valueHelpRequest="._showLocationValueHelp" showValueHelp="true" valueHelpOnly="true"/>
+            <Label id="_IDGenLabel162" text="Zcode" required="true" />
+            <Input id="ZcodeField" width="100%"/>
+            <Label id="_IDGenLabel13" text="Usability" required="true" />
+            <Input id="usabityInput" required="true" liveChange="onStringLengthChange" />
+        </VBox>
+
+        <beginButton>
+            <Button class="SaveUpdateText" text="Save" type="Accept" press="_onSaveMaterialEntry" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" type="Reject" press="_handleValueHelpClose1" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

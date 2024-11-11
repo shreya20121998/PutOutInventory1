@@ -1,0 +1,40 @@
+<mvc:View controllerName="inventory.controller.InventoryMain"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+   <Page id="_IDGenPage1" showHeader="false">
+
+   
+       
+        <FlexBox class="masterFlexBox">
+            <GenericTile id="GenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                header="Material Invt Record" press="onMaterialInventoryRecord" subheader="">
+                <TileContent id="_IDGenTileContent1" >
+                <ImageContent  src="sap-icon://document-text"></ImageContent>  
+                
+                </TileContent>
+            </GenericTile>
+
+            <GenericTile id="GenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                header="Warehouse Gate In" press="onSecurityGateIn" mode="ContentMode">
+                <TileContent >
+                <ImageContent  src="sap-icon://customer-and-supplier"></ImageContent>  
+        
+                </TileContent>
+            </GenericTile>
+
+            <GenericTile id="GenGenericTile3" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                header="Material Inspection" press="onInspection"  >
+                <TileContent >
+                <ImageContent  src="sap-icon://inspection"></ImageContent>  
+                </TileContent>
+            </GenericTile>
+
+            <GenericTile id="GenGenericTile4" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                header="Dashboard" press="onDashboard"  >
+                <TileContent >
+                <ImageContent  src="sap-icon://bbyd-dashboard"></ImageContent>  
+                </TileContent>
+            </GenericTile> 
+        </FlexBox>
+    </Page>
+</mvc:View>

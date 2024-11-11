@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+    <Dialog id="expandDataDialog" title="Sub Component Data" class="sapUiSmallMargin">
+        <VBox id="_IDGenVBox" class="sapUiContentPadding sapUiSmallMargin">
+            <Table id="expandSubTable"
+                width="auto"
+                contextualWidth="Auto"
+                class="borderedTable"
+                mode="SingleSelectMaster"
+                sticky="ColumnHeaders"
+                noDataText="No Data"
+                items="{subMaterialData>/}">
+                <columns>
+                    <Column id="_IDGenColumn9" class="tLine" width="100px" hAlign="Center">
+                        <Label id="_IDGenLabel9" text="Category" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn10" width="100px" hAlign="Center">
+                        <Label id="IDGenLabel0" text="Description" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn11" width="100px" hAlign="Center">
+                        <Label id="_IDGenLabl1" text="Material Code" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn12" width="100px" hAlign="Center">
+                        <Label id="_IDGenLabl2" text="Quantity" textAlign="Center"/>
+                    </Column>
+                </columns>
+                <ColumnListItem id="_istItem2" class="borderedRow">
+                    <cells>
+                        <Input id="_IDGenxt21" class="inputItem" editable="false" textAlign="Center" value="{subMaterialData>Category}"/>
+                        <Input id="_IDGenText22" editable="false" textAlign="Center" value="{subMaterialData>Description}"/>
+                        <Input id="_IDGenText23" editable="false" textAlign="Center" value="{subMaterialData>MaterialCode}"/>
+                        <Input id="SubQuantityInput" editable="true" textAlign="Center" value="{subMaterialData>Quantity}"/>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+            <Table id="expandSubTable2"
+                width="auto"
+                contextualWidth="Auto"
+                class="borderedTable"
+                mode="SingleSelectMaster"
+                sticky="ColumnHeaders"
+                noDataText="No Data"
+                items="{subMaterialData>/}">
+                <columns>
+                    <Column id="_IDGenColumn13" class="tLine" width="100px" hAlign="Center">
+                        <Label id="_IDGenLabe21" text="Category" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn14" width="100px" hAlign="Center">
+                        <Label id="IDGenLabe26" text="Description" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn15" width="100px" hAlign="Center">
+                        <Label id="_IDGenLab23" text="Material Code" textAlign="Center"/>
+                    </Column>
+                    <Column id="_IDGenColumn16" width="100px" hAlign="Center">
+                        <Label id="_IDGenLab24" text="Quantity" textAlign="Center"/>
+                    </Column>
+                </columns>
+                <ColumnListItem id="_istItem3" class="borderedRow">
+                    <cells>
+                        <Input id="_IDGenxt24" class="inputItem" editable="false" textAlign="Center" value="{subMaterialData>Category}"/>
+                        <Input id="_IDGenText25" editable="false" textAlign="Center" value="{subMaterialData>Description}"/>
+                        <Input id="_IDGenText26" editable="false" textAlign="Center" value="{subMaterialData>MaterialCode}"/>
+                        <Input id="SubQuantityInput1" editable="false" textAlign="Center" value="{subMaterialData>Quantity}"/>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </VBox>
+        <footer>
+            <OverflowToolbar id="overFlowtabFooter">
+                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                <Button id="_IDGenButton1" type="Accept" text="Save" press="_onCancelCheckinSubFragment"/>
+                <Button id="_IDGenButton3" type="Reject" text="Cancel" press="_onCancelCheckinSubFragment"/>
+            </OverflowToolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>

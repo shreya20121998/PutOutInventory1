@@ -1,0 +1,151 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="expandDataDialog"
+        title="SubComponent Inspection "
+        class="sapUiSmallMargin"
+    >
+        <VBox
+            id="_IDGenVBox"
+            class="sapUiContentPadding sapUiSmallMargin"
+        >
+            <Table
+                id="expandSubTable"
+                width="auto"
+                contextualWidth="Auto"
+                class="borderedTable"
+                mode="SingleSelectMaster"
+                sticky="ColumnHeaders"
+                noDataText="No Data"
+                items="{subMaterialData>/}"
+            >
+                <columns>
+                    <Column
+                        id="_IDGenColumn9"
+                        class="tLine"
+                        width="100px"
+                    >
+                        <Label
+                            id="_IDGenLabel9"
+                            text="Category"
+                            textAlign="Center"
+                        />
+                    </Column>
+                    <Column
+                        id="_IDGenColumn10"
+                        width="100px"
+                    >
+                        <Label
+                            id="IDGenLabel0"
+                            text="Description"
+                            textAlign="Center"
+                        />
+                    </Column>
+                    <Column
+                        id="_IDGenColumn11"
+                        width="100px"
+                    >
+                        <Label
+                            id="_IDGenLabl1"
+                            text="Material Code"
+                            textAlign="Center"
+                        />
+                    </Column>
+                    <Column
+                        id="_IDGenColumn12"
+                        width="100px"
+                    >
+                        <Label
+                            id="_IDGenLabl2"
+                            text="Quantity"
+                            textAlign="Center"
+                            required="true"
+                        />
+                    </Column>
+                    <!-- <Column
+                        id="inspection"
+                        width="100px"
+                    >
+                        <Label
+                            id="inspection"
+                            text="Status"
+                            textAlign="Center"
+                            required="true"
+                        />
+                    </Column>
+                    <Column  width="100px">
+                    <Label  text="Remarks" textAlign="Center" id="_RemarksID" required="true"></Label>
+                    </Column> -->
+                </columns>
+                <ColumnListItem
+                    id="_istItem22"
+                    class="borderedRow"
+                >
+                    <cells>
+                        <Input
+                            id="_IDGenxt212"
+                            class="inputItem"
+                            editable="false"
+                            value="{subMaterialData>Category}"
+                        />
+                        <Input
+                            id="_IDGenText222"
+                            editable="false"
+                            value="{subMaterialData>Description}"
+                        />
+                        <Input
+                            id="_IDGenText223"
+                            editable="false"
+                            value="{subMaterialData>MaterialCode}"
+                        />
+                        <Input
+                            id="SubQuantityInput2"
+                            editable="true"
+                            change="quantityChangeSub"
+                            value="{subMaterialData>Quantity}"
+                        />
+                        <!-- <Select
+                            id="selectStatus2"
+                            forceSelection="false"
+                            width="250px"
+                            class="sapUiSmallMarginEnd"
+                            selectedKey="{subMaterialData>MatStatus}"
+                            change="_onStatusTypeChange"
+                            items="{path: '/Material_Status'}"
+                        >
+                            <core:Item
+                                key="{Description}"
+                                text="{Description}"
+                            />
+                        </Select>
+                        <Input
+                            id=""
+                        
+                            value="{subMaterialData>MatRemarks}"
+                        /> -->
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </VBox>
+        <footer>
+            <OverflowToolbar id="overFlowtabFooter">
+                <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                <Button
+                    id="_IDGenButton1"
+                    type="Accept"
+                    text="Save"
+                    press="onsavesubcomponent"
+                />
+                <Button
+                    id="_IDGenButton3"
+                    type="Reject"
+                    text="Cancel"
+                    press="_onCancelCheckinSubFragment"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>

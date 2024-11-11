@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="updateMaterialStatusDialog"
+        class="sapUiContentPadding"
+        contentWidth="20%"
+        title="Update Material Group"
+        afterClose="handleValueHelpClose2">
+
+        <VBox>
+            <Label id="editID" text="Category ID"/>
+            <Input id="editIDInput" liveChange="inputHandler" editable="false" value="{editMaintainData>/ID}"/>
+            <Label id="editCatg" text="Category" required="true" />
+            <Input id="editCatgInput" liveChange="inputHandler" value="{editMaintainData>/Type}"/>
+            <Label id="editLocation" text="Location" required="true" />
+            <Input id="editLocationInput" value="{editMaintainData>/StorageLocation_LocationID}" />
+            <Label id="editZcode" text="Material Code" required="true" />
+            <Input id="fieldTypeComboBox1" width="100%" value="{editMaintainData>/Zcode}" />
+            <Label id="editUsabilityLabel" text="Usability" />
+            <Input id="editUsabilityInput" value="{editMaintainData>/Usability}"/> 
+        </VBox>
+
+        <beginButton>
+            <Button text="Update" type="Accept" press="_onUpdateMaterialGroupEntry"  />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" type="Reject" press="_handleValueHelpClose2" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

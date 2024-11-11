@@ -1,0 +1,88 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="addSubComponentDialog"
+        class="sapUiContentPadding"
+        contentWidth="80%"
+        contentHeight="25%"
+        title="Subcomponents :-"
+        afterClose="subcomponentDialogClose"
+        
+    >
+        <Table
+            id="subComponentTable"
+            items="{subcomponentModel>/subData}"
+        >
+            <columns>
+                <Column width="5%">
+                    <Text text="S.No." />
+                </Column>
+                <Column width="30%">
+                    <Text text="Description" />
+                </Column>
+
+                <Column>
+                    <Text text="Category" />
+                </Column>
+                <Column>
+                    <Label text="Quantity"  required="true"/>
+                </Column>
+                <Column width="20%">
+                    <Text text="Material Code" />
+                </Column>
+                <Column width="8%">
+                 <Text text="Remove" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <Input
+                        value="{subcomponentModel>SNo}"
+                        editable="false"
+                    />
+                    <Input
+                        value="{subcomponentModel>Description}"
+                        showValueHelp="true"
+                        valueHelpRequest="showMaterialValueHelp2"
+                        valueHelpOnly="true"
+                    />
+
+                    <Input value="{subcomponentModel>Category}" editable="false" />
+                    <Input value="{subcomponentModel>Quantity}" type="Number" />
+                    <Input value="{subcomponentModel>MaterialCode}" editable="false" />
+                    <Button
+                        icon="sap-icon://delete"
+                        press="onDeleteSubComponnentRow"
+                        type="Reject"
+                    />
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <HBox justifyContent="Start">
+            <Button
+              
+                text="Add SubComponent"
+                press="onAddSubMaterial"
+                type="Emphasized"
+                class="sapUiTinyMarginTop"
+            />
+        </HBox>
+        <beginButton>
+            <Button
+                text="Save"
+                type="Accept"
+                press="onSaveRowSubComponentBtn"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="Cancel"
+                type="Reject"
+                press="subcomponentDialogClose"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

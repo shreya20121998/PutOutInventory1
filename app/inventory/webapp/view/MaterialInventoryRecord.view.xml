@@ -1,0 +1,200 @@
+<mvc:View
+    controllerName="inventory.controller.MaterialInventoryRecord"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+>
+    <Page
+        id="page"
+        title="Material Inventory Record"
+        titleAlignment="Center"
+    >
+        <l:VerticalLayout
+            id="_IDGenVerticalLayout1"
+            width="100%"
+        >
+            <l:BlockLayout
+                id="_IDGenBlockLayout1"
+                background="Dashboard"
+            >
+                <l:BlockLayoutRow id="_IDGenBlockLayoutRow1">
+                    <l:BlockLayoutCell
+                        id="_IDGenBlockLayoutCell1"
+                        width="90%"
+                    >
+                        <HBox justifyContent="End">
+                            <Button
+                                icon="sap-icon://add"
+                                text="Add Material"
+                                press="onAddMaterial"
+                                type="Emphasized"
+                            />
+                        </HBox>
+
+                        <Table
+                            id="entryTypeTable"
+                            width="100%"
+                            class="materialTable"
+                            alternateRowColors="true"
+                            items="{tempModel>/data}"
+                            showSeparators="All"
+                        >
+                            <columns>
+                                <Column
+                                    id="_IDGenColumn1"
+                                    width="4%"
+                                >
+                                    <Text text="S.No." />
+                                </Column>
+
+                                <Column
+                                    id="_IDGenColumn3"
+                                    width="35%"
+                                >
+                                    <Label
+                                        id="_IDGenText3"
+                                        text="Description"
+                                        required="true"
+
+                                        
+                                    />
+                                </Column>
+
+                                <Column
+                                    id="_IDGenColumn4"
+                                    width="8%"
+                                >
+                                    <Label
+                                        id="_IDGenText4"
+                                        text="Category"
+                                        required="true"
+                                    />
+                                </Column>
+
+                                <Column
+                                    id="_IDGenColumn5"
+                                    width="7%"
+                                >
+                                    <Label
+                                        id="_IDGenText5"
+                                        text="Quantity"
+                                        required="true"
+                                    />
+                                </Column>
+                                <Column
+                                    id="_IDGenCmn5"
+                                    width="20%"
+                                >
+                                    <Label
+                                        id="_IDGenTxt5"
+                                        text="Material Code"
+                                        required="true"
+                                    />
+                                </Column>
+
+                                <Column
+                                    id="_IDGenColumn6"
+                                    width="6%"
+                                >
+                                    <Text text="Delete" />
+                                </Column>
+                                <Column width="4%">
+                                    <Text
+                                        id="_IDGenText7"
+                                        text="Clear"
+                                    />
+                                </Column>
+                                <Column width="12%">
+                                    <Text
+                                        id="_IDGenText6"
+                                        text=""
+                                    />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem2">
+                                    <cells>
+                                        <Text
+                                            id="SNo"
+                                            text="{tempModel>SNo}"
+                                        />
+
+                                        <Input
+                                            id="Desc"
+                                            liveChange="onCodeLiveChange"
+                                            width="100%"
+                                            valueHelpRequest="showMaterialValueHelp"
+                                            showValueHelp="true"
+                                            value="{tempModel>Description}"
+                                            required="true"
+                                            placeholder="enter description or select from value help"
+                                        />
+
+                                        <Input
+                                            value="{tempModel>Category}"
+                                            showValueHelp="true"
+                                            valueHelpRequest="showCatergoryValueHelp"
+                                            required="true"
+                                        />
+                                        <Input
+                                            id="Quantity"
+                                            liveChange="onLiveChange"
+                                            
+                                            value="{tempModel>Quantity}"
+                                            required="true"
+                                            type="Number"
+                                        />
+                                        <Input
+                                            id="MaterialCode"
+                                            value="{tempModel>MaterialCode}"
+                                            editable="false"
+                                        />
+                                        <Button
+                                            icon="sap-icon://delete"
+                                            press="onDeleteRow"
+                                            type="Reject"
+                                        />
+                                           <!-- New Clear Button -->
+                                        <Button
+                                            icon="sap-icon://sys-cancel"
+                                            press="onClearRow"
+                                            type="Transparent"
+                                        />
+                                        <Button
+                                            text="Add SubComponent"
+                                            press="onOpenSubComponent"
+                                            type="Emphasized"
+                                            enabled="{= !${tempModel>MaterialCode} }"
+                                        />
+                                     
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                        <HBox
+                            justifyContent="End"
+                            class="submitButton"
+                        >
+                            <Button
+                                icon="sap-icon://add-activity-2"
+                                text="Generate MCode"
+                                type="Attention"
+                                press="onGenerateCodePress"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <Button
+                                text="Submit"
+                                type="Success"
+                                press="onSubmitPress"
+                            />
+                        </HBox>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

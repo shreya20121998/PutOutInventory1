@@ -1,0 +1,61 @@
+<mvc:View controllerName="config.controller.MaterialStatus"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page1" title="Material Status" titleAlignment="Center">
+         <l:VerticalLayout id="_IDGenVerticalLayout111" width="100%" >
+            <l:BlockLayout
+                id="_IDGenBlockLayout111"
+                background="Dashboard" 
+            >
+            <l:BlockLayoutRow id="_IDGenBlockLayoutRow111">
+            <l:BlockLayoutCell
+                id="_IDGenBlockLayoutCell111"
+                width="90%"
+            >
+
+            <HBox class="btnbottomBorder" justifyContent="Start">
+                <Button   text="Create" press="onCreate" type="Emphasized"></Button>
+                <Button class="btnCrud"  text="Edit" press="onEdit" type="Emphasized"></Button>
+                <Button class="btnCrud" text="Delete" press="onDelete" type="Emphasized"></Button>
+            </HBox>
+
+
+
+            <Table
+                id="materialStatusTable"
+                width="100%"
+                class="tables"
+                alternateRowColors="true"
+                mode="MultiSelect"
+                items="{/Material_Status}"
+                >
+                <columns>
+                    <Column id="_IDGenColumn3" >
+                        <Text id="_IDGenText3" text="Status Code" />
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Text id="_IDGenText4" text=" Status Description" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem2">
+                        <cells>
+                            
+                            <Text id="sCode" text="{StatusCode}" />
+                            <Text id="sDesc" text="{Description}" />
+
+                        </cells>
+                    </ColumnListItem>
+                 
+                </items>
+            </Table>
+
+
+                </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

@@ -1,0 +1,111 @@
+<mvc:View
+    controllerName="inventory.controller.SecurityGateIn"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+>
+    <Page
+        id="page1"
+        title="Warehouse Gate In"
+        titleAlignment="Center"
+    >
+
+    <l:VerticalLayout
+            id="_IDGenVerticalLayout1"
+            width="100%"
+            >
+            <l:BlockLayout
+                id="_IDGenBlockLayout1"
+                background="Dashboard"
+            >
+                <l:BlockLayoutRow id="_IDGenBlockLayoutRow1">
+                 <l:BlockLayoutCell
+                        id="_IDGenBlockLayoutCell1"
+                        width="90%"
+                    >
+                    <form:SimpleForm id="_IDGenSimpleForm1" editable="true"  width="120%">         
+                    <Label id="_IDGenLabel1" class="voyageText" design="Bold" text="Material Request Number" />
+                    <Input id="CharteringRqNo" class="voyageInput" width="200px" showValueHelp="true" valueHelpRequest="onServiceRequestNumber" />
+                    <Label id="_IDGenLabel12" class="voyageText" design="Bold" text="Select Start Date" />
+                    <DatePicker  id="myDatePicker" afterValueHelpClose="_onStartDateFilter" value="{dateModel>/startDate}" width="200px" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"/>
+                    <Label id="_IDGenLabel13" class="voyageText" design="Bold" text="Select End Date" />
+                    <DatePicker  afterValueHelpClose="_onDateFilter" id="myDatePicker1" value="{dateModel>/endDate}" width="200px" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"/>
+                    
+                    
+                    </form:SimpleForm>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+
+        <l:VerticalLayout
+            id="requestMaterialDetailsLayout"
+            width="100%"
+            visible="false"
+            class="table_layout"
+        >
+            <l:BlockLayout
+                id="_IDGenBlockLayout2"
+                background="Dashboard"
+            >
+                <l:BlockLayoutRow id="_IDGenBlockLayoutRow2">
+                 <l:BlockLayoutCell
+                        id="_IDGenBlockLayoutCell2"
+                        width="90%"
+                    >
+                      <Toolbar id="t3" class="sapUiMediumMarginBottom">
+					            <Title id="closed_title3" textAlign="Center"  class="h_text" level="H6" text="Material Requests:" />
+                                <ToolbarSpacer id="toolbarspacer1"/>
+				    </Toolbar>  
+                    
+                <Table id="createTypeTable"
+                     width="auto"
+                     contextualWidth="Auto"
+                     class="borderedTable"
+                     mode="SingleSelectMaster"
+                     sticky="ColumnHeaders"
+                     noDataText="Loading ..."
+                     items="{materialData>/}">
+             <columns>
+                  <Column id="_IDGenColu1" width="100px" hAlign="Center">
+                      <Label id="_IDGenLabel2" text="Request No."/>
+                  </Column>
+                  <Column id="_IDGenColun2" width="100px" hAlign="Center">
+                      <Label id="_IDGenLabel3" text="Created Date"/>
+                  </Column>
+                  <Column id="_IDGenColun3" width="100px" hAlign="Center">
+                      <Label id="_IDGenLabel5" text="Created Time"/>
+                  </Column>
+                  <Column id="_IDGenColum" width="100px" hAlign="Center">
+                      <Label id="_IDGenLabel4" text="Status"/>
+                  </Column>
+                  <Column id="_IDGenColum1" width="50px" hAlign="Center">
+                      <Label id="_IDGenLabe4" text="" textAlign="Center"/>
+                  </Column>
+              </columns>
+    <ColumnListItem id="_istItem1" class="borderedRow" press="onMaterialRowSelect">
+        <cells>
+            <Text id="_IDGenText19" class="inputItem" text="{materialData>reqNo}" />
+            <Text id="_IDGenText20" class="inputItem"  text="{path:'materialData>createdAt', formatter: '.formatDate'}" />
+            <Text id="_IDGenText21" class="inputItem"  text="{path:'materialData>createdAt', formatter: '.formatTime'}" />
+            <ObjectStatus id="_IDGenObjectStatus1" class="statusText"
+                text="{materialData>reqStatus}"
+                state="{path:'materialData>reqStatus',formatter:'.statusFormatter'}"
+                />
+                <Button icon="sap-icon://navigation-right-arrow" press="onMaterialRowSelect"/>
+        </cells>
+    </ColumnListItem>
+</Table>
+
+                
+               
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+     
+    </Page>
+</mvc:View>

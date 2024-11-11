@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="addSubComponentDialog"
+        class="sapUiContentPadding"
+        contentWidth="80%"
+        contentHeight="25%"
+        title="SubComponent Details"
+        initialFocus="none"
+        afterClose="handleValueHelpClose">
+        
+        <Table id="subComponentTable" class="dashboardTable" items="{/rqSubMaterial}">
+            <columns>
+                <Column>
+                    <Text text="Parent Material Code" />
+                </Column>
+                <Column>
+                    <Text text="Material Code" />
+                </Column>
+                <Column>
+                    <Text text="Description"></Text>
+                </Column>
+                <Column>
+                    <Text text="Category"></Text>
+                </Column>
+                <Column>
+                    <Text text="Quantity"></Text>
+                </Column>
+               
+            </columns>
+            <items>
+                <ColumnListItem>
+                   <Text text="{Parent_MaterialCode}"></Text>
+                   <Text text="{MaterialCode}"></Text>
+                   <Text text="{Description}"></Text>
+                   <Text text="{Category}"></Text>
+                   <Text text="{Quantity}"></Text>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <endButton>
+            <Button text="Close" type="Emphasized" press="handleValueHelpClose" />
+        </endButton>
+        
+    </Dialog>
+</core:FragmentDefinition>

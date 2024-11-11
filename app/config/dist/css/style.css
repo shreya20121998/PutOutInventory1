@@ -1,0 +1,21 @@
+/* Enter your custom styles here */
+.btnCrud{
+    margin-left: 10px;
+    margin-bottom: 10px;
+   
+}
+.btnbottomBorder{
+    border-bottom: 1px solid gray;
+    margin-bottom: 5px;
+}
+.sapMLIBShowSeparator>td{
+    border: 1px solid rgb(214, 211, 211);
+ }
+ .tables th {
+    border: 1px solid rgb(214, 211, 211);
+}
+ 
+.sapMGTSubHdrTxt {
+    margin-top: 4px;
+    font-size: 0.775rem;
+}

@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="quantityDialog"
+        class="sapUiContentPadding"
+        contentWidth="80%"
+        contentHeight="25%"
+        title="Split Quantity Details"
+        initialFocus="none"
+        afterClose="handleQuantityDialogClose">
+        
+        <Table id="quantityTable" class="dashboardTable" items="{/splitMaterilalTable}">
+            <columns>
+                    <Column>
+                        <Text text="Material Req No" />
+                    </Column>
+                    <Column>
+                        <Text text="MaterialCode" />
+                    </Column>
+                    <Column>
+                        <Text text="Status" />
+                    </Column>
+                    <Column>
+                        <Text text="Quantity" />
+                    </Column>
+                     <Column>
+                        <Text text="Remarks" />
+                    </Column>
+                </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{reqNo}" />
+                        <Text text="{MaterialCode}" />
+                        <Text text="{MatStatus}" />
+                        <Text text="{Quantity}" />
+                        <Text text="{MatRemarks}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <endButton>
+            <Button text="Close" type="Emphasized" press="handleQuantityDialogClose" />
+        </endButton>
+        
+    </Dialog>
+</core:FragmentDefinition>
+
+
+

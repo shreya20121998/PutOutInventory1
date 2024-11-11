@@ -1,0 +1,51 @@
+/* Enter your custom styles here */
+
+
+.submitButton{
+    margin-top: 20px;
+}
+.flexBox{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.GoBtn{
+    align-items: end;  
+}
+.refreshBtn{
+    margin-left: 5px;
+}
+.dashboardTable th{
+    border: 1px solid #ddd;
+    background-color: #e9f6f7;
+}
+.dashboardTable td{
+    border: 1px solid #ddd;
+}
+.borderedTable .borderedRow .sapMListTblCell {
+    border: 1px solid #ddd;
+    padding: 3px;
+    /* height: 50px; */
+}
+  .statusText{font-weight: bold;}
+.borderedTable .sapMListTblHeaderCell {
+    border: 1px solid #ddd;
+    /* padding: 8px; */
+    background-color: #f9f9f9;
+}
+/* submit button on security material check in page */
+.submitBtnBox{
+    display: flex;
+    justify-content: end;
+}
+.quantitybtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sapMGTSubHdrTxt {
+    margin-top: 4px;
+    font-size: 0.775rem;
+}
+
+

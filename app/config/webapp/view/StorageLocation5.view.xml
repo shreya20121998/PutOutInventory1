@@ -1,0 +1,176 @@
+<mvc:View
+    controllerName="config.controller.StorageLocation"
+   xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Page
+        id="page1"
+        title="Storage Location"
+    >
+        <l:VerticalLayout
+            id="_IDGenVerticalLayout11"
+            width="98%"
+        >
+            <l:BlockLayout
+                id="_IDGenBlockLayout11"
+                background="Dashboard"
+            >
+                <l:BlockLayoutRow id="_IDGenBlockLayoutRow11">
+                    <l:BlockLayoutCell
+                        id="_IDGenBlockLayoutCell11"
+                        width="90%"
+                    >
+                        <HBox
+                            id="_IDGenHBox1"
+                            class="btnbottomBorder"
+                            justifyContent="Start"
+                        >
+                            <Button
+                                id="_IDGenButton"
+                                class="sapUiSmallMarginEnd"
+                                text="Create"
+                                press="onCreatePress"
+                                type="Emphasized"
+                            />
+                            <Button
+                                id="_IDGenButton1"
+                                class="sapUiSmallMarginEnd"
+                                text="Edit"
+                                press="onEditPress"
+                                type="Emphasized"
+                            />
+                            <Button
+                                id="_IDGenButton2"
+                                class="btnCrud"
+                                text="Delete"
+                                press="onDeletePress"
+                                type="Emphasized"
+                            />
+                        </HBox>
+
+                        <Table
+                            id="storageTable"
+                            inset="false"
+                            alternateRowColors="true"
+                            items="{locationModel>/StorageLocations}"
+                            mode="MultiSelect"
+                            selectionChange="onRowSelect"
+                            class="tables sapUiSmallMarginTop"
+                            width="100%"
+                        >
+                            <columns >
+                                <Column id="_IDGenColumn">
+                                    <Text
+                                        id="_IDGenText"
+                                        text="Location ID"
+                                    />
+                                </Column>
+                                <Column id="_IDGenColumn1">
+                                    <Text
+                                        id="_IDGenText1"
+                                        text="Location Name"
+                                    />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem">
+                                    <cells>
+                                        <Text
+                                            id="_IDGenText41"
+                                            text="{locationModel>LocationID}"
+                                        />
+                                        <Text
+                                            id="_IDGenText51"
+                                            text="{locationModel>LocationName}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                        <!-- Dialog for creating a new storage location -->
+                        <Dialog
+                            id="createDialog"
+                            title="Create Storage Location"
+                            type="Message"
+                        >
+                            <content>
+                                <VBox id="_IDGenVBox">
+                                    <Label
+                                        id="_IDGenLabel"
+                                        text="Location ID"
+                                        required="true"
+                                    />
+                                    <Input id="locationIDInput" />
+                                    <Label
+                                        id="_IDGenLabel1"
+                                        text="Location Name"
+                                        required="true"
+                                    />
+                                    <Input id="locationNameInput" />
+                                </VBox>
+                            </content>
+                            <beginButton>
+                                <Button
+                                    id="_IDGenButton4"
+                                    text="Create"
+                                    press="onDialogCreatePress"
+                                />
+                            </beginButton>
+                            <endButton>
+                                <Button
+                                    id="_IDGenButton5"
+                                    text="Cancel"
+                                    press="onDialogCancelPress"
+                                />
+                            </endButton>
+                        </Dialog>
+
+                        <Dialog
+                            id="editDialog"
+                            title="Edit Storage Location"
+                            type="Message"
+                        >
+                            <content>
+                                <VBox id="_IDGenVBoxEdit">
+                                    <Label
+                                        id="_IDGenLabelEdit"
+                                        text="Location ID"
+                                        required="true"
+                                    />
+                                    <Input
+                                        id="editLocationIDInput"
+                                        editable="false"
+                                    />
+                                    <Label
+                                        id="_IDGenLabelEdit1"
+                                        text="Location Name"
+                                        required="true"
+                                    />
+                                    <Input id="editLocationNameInput" />
+                                </VBox>
+                            </content>
+                            <beginButton>
+                                <Button
+                                    id="_IDGenButtonEdit"
+                                    text="Save"
+                                    press="onDialogSavePress"
+                                />
+                            </beginButton>
+                            <endButton>
+                                <Button
+                                    id="_IDGenButtonCancelEdit"
+                                    text="Cancel"
+                                    press="onDialogCancelEditPress"
+                                />
+                            </endButton>
+                        </Dialog>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

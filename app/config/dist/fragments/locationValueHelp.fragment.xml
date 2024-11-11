@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">  
+    <SelectDialog
+        id="_LocationDialog"
+        noDataText="Loading..."
+        title="Select Location"
+        liveChange=".onCategoryFilterSearch"
+        search=".onLocationFilterSearch"
+        confirm="onLocationValueHelpClose"
+        cancel="onLocationValueHelpClose"
+        items="{/StorageLocation}"
+        initialFocus="SearchField"
+        multiSelect="false"
+        contentHeight="60%"
+        contentWidth="20%"
+        
+    >
+        
+        <StandardListItem 
+            
+            title="{LocationID}"
+            
+            iconDensityAware="false"
+            iconInset="false"
+            type="Active" />
+            
+    </SelectDialog>
+</core:FragmentDefinition>

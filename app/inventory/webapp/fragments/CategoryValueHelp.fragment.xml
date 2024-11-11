@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">  
+    <SelectDialog
+        id="_CategoryDialog"
+        noDataText="Loading..."
+        title="Select Category"
+        liveChange=".onCategoryFilterSearch"
+        search=".onCategoryFilterSearch"
+        confirm="onCategoryValueHelpClose"
+        cancel="onCategoryValueHelpClose"
+        items="{/Category}"
+        initialFocus="SearchField"
+        multiSelect="false"
+        contentHeight="60%"
+        contentWidth="20%"
+        
+    >
+        
+        <StandardListItem 
+            
+            title="{Type}"
+            description="{Usability}"
+
+            iconDensityAware="false"
+            iconInset="false"
+            type="Active" />
+            
+    </SelectDialog>
+</core:FragmentDefinition>

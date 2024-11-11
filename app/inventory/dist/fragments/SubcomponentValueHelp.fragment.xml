@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">  
+    <SelectDialog
+        id="_SubcomponentDialog"
+        noDataText="Loading..."
+        title="Select Subcomponent"
+        liveChange=".onSubcomponentFilterSearch"
+        search=".onSubcomponentFilterSearch"
+        confirm="onSubcomponentValueHelpClose"
+        cancel="onSubcomponentValueHelpClose"
+        items="{/Material}"
+        initialFocus="SearchField"
+        multiSelect="false"
+        contentWidth="480px"
+        
+    >
+        
+        <StandardListItem 
+            
+            title="{Description}"
+            info="{MaterialCode}"
+            description="{Category}"
+
+            iconDensityAware="false"
+            iconInset="false"
+            type="Active" />
+            
+    </SelectDialog>
+</core:FragmentDefinition>

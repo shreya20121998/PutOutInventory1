@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="addMaterialStatusDialog"
+        class="sapUiContentPadding"
+        contentWidth="20%"
+        
+        title="Add Material Status"
+        afterClose="handleValueHelpClose1">
+
+        <VBox>
+            <Label text="Status Code" required="true"></Label>
+            <Input id="sfCode" value="{addMaterialStatusModel>/StatusCode}" ></Input>
+            <Label text="Staus Description" required="true"></Label>
+            <Input id="sfDesc" value="{addMaterialStatusModel>/Description}"></Input>
+        </VBox>
+
+        <beginButton>
+            <Button class="SaveUpdateText" text="Save" type="Accept" press="onSave" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" type="Reject" press="handleValueHelpClose1" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,68 @@
+<mvc:View controllerName="config.controller.MaterialGroup"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page" title="Material Category" titleAlignment="Center">
+         <l:VerticalLayout id="_IDGenVerticalLayout1" width="100%" >
+            <l:BlockLayout
+                id="_IDGenBlockLayout1"
+                background="Dashboard" 
+            >
+            <l:BlockLayoutRow id="_IDGenBlockLayoutRow1">
+            <l:BlockLayoutCell
+                id="_IDGenBlockLayoutCell1"
+                width="90%"
+            >
+
+            <HBox class="btnbottomBorder" justifyContent="Start">
+                <Button  text="Create" press="_onCreateMaterialEntryDialog" type="Emphasized"></Button>
+                <Button class="btnCrud sapUiTinyMarginBegin"  text="Edit" press="_onEditMaterialDialog" type="Emphasized"></Button>
+                <Button class="btnCrud sapUiTinyMarginBegin" text="Delete" press="_onDeleteMaterialEntry" type="Emphasized"></Button>
+            </HBox>
+
+
+            <Table
+                id="materialGroupTable"
+                width="100%"
+                class="tables"
+                alternateRowColors="true"
+                mode="MultiSelect"
+                items="{/Category}"
+                >
+                <columns>
+                    <Column id="_IDGenColumn3" >
+                        <Text id="_IDGenText3" text="Category" />
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Text id="_IDGenText4" text="Location Id" />
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Text id="_IDGenText5" text="Zcode" />
+                    </Column>
+                    <Column id="_IDGenColumn6">
+                        <Text id="_IDGenText6" text="Usability" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem2">
+                        <cells>
+                            
+                            <Text id="typeInput" text="{Type}" />
+                            <Text id="locationIdInput" text="{StorageLocation_LocationID}" />
+                            <Text id="zcodeInput" text="{Zcode}" />
+                            <Text id="usabilityInput" text="{Usability}" />
+
+                        </cells>
+                    </ColumnListItem>
+                 
+                </items>
+            </Table>
+
+
+                </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

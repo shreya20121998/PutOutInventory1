@@ -1,0 +1,88 @@
+### GET
+
+GET http://localhost:4004/odata/v4/inventory/Material
+
+### create
+POST http://localhost:4004/odata/v4/inventory/Material_Status
+Content-Type: application/json
+
+{
+  "StatusCode":"ddd",
+  "Description":"testing10"
+}
+
+###
+GET http://localhost:4004/odata/v4/inventory/StorageLocation?$filter=LocationID eq "LOC02"
+
+
+### POST STATUS
+PUT http://localhost:4004/odata/v4/inventory/Material_Status/FTR
+Content-Type: application/json
+
+{
+  "StatusCode":"FTR",
+  "Description":"testing10"
+}
+### GET
+# GET http://localhost:4004/odata/v4/inventory/$metadata
+GET http://localhost:4004/odata/v4/inventory/serviceRequest?$expand=Materials
+
+### 
+PUT http://localhost:4004/odata/v4/inventory/StorageLocation/LOC03
+Content-Type: application/json
+
+{
+  "LocationID":"LOC03",
+  "LocationName":"testin"
+}
+
+### create
+POST http://localhost:4004/odata/v4/inventory/serviceRequest
+Content-Type: application/json
+
+
+{  
+  "Materials": [
+    {
+      "Category": "C",
+      "MaterialCode": "MAT001",
+      "Description": "Steel Pipe",
+      "Status": "Active",
+      "Remarks": "Urgent Delivery",
+      "Quantity": 100,
+      "SubcomponentList": [
+        {
+          "Category": "B",
+          "Description": "Steel Fitting",
+          "MaterialCode": "SUB001",
+          "Quantity": 50,
+          "Parent": "MAT001"
+        },
+        {
+          "Category": "C",
+          "Description": "Steel Nut",
+          "MaterialCode": "SUB002",
+          "Quantity": 30,
+          "Parent": "MAT001"
+        }
+      ]
+    },
+    {
+      "Category": "A",
+      "MaterialCode": "MAT002",
+      "Description": "Iron Rod",
+      "Status": "Pending",
+      "Remarks": "Standard",
+      "Quantity": 200,
+      "SubcomponentList": [
+        {
+          "Category": "D",
+          "Description": "Iron Bolt",
+          "MaterialCode": "SUB003",
+          "Quantity": 100,
+          "Parent": "MAT002"
+        }
+      ]
+    }
+  ]
+}

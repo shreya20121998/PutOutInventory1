@@ -1,0 +1,61 @@
+<mvc:View controllerName="config.controller.StorageLocation"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="" title="Storgae Location" titleAlignment="Center">
+         <l:VerticalLayout id="_IDGenVerticalLayout10" width="100%" >
+            <l:BlockLayout
+                id="_IDGenBlockLayout10"
+                background="Dashboard" 
+            >
+            <l:BlockLayoutRow id="_IDGenBlockLayoutRow10">
+            <l:BlockLayoutCell
+                id="_IDGenBlockLayoutCell10"
+                width="90%"
+            >
+
+            <HBox class="btnbottomBorder" justifyContent="Start">
+                <Button   text="Create" press="onCreate" type="Emphasized"></Button>
+                <Button class="btnCrud"  text="Edit" press="onEdit" type="Emphasized"></Button>
+                <Button class="btnCrud" text="Delete" press="onDelete" type="Emphasized"></Button>
+            </HBox>
+
+
+
+            <Table
+                id="slocTable"
+                width="100%"
+                class="tables"
+                alternateRowColors="true"
+                mode="MultiSelect"
+                items="{/StorageLocation}"
+                >
+                <columns>
+                    <Column id="_IDGenColumn31" >
+                        <Text id="_IDGenText31" text="Location Id" />
+                    </Column>
+                    <Column id="_IDGenColumn41">
+                        <Text id="_IDGenText42" text="Location Name" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem21">
+                        <cells>
+                            
+                            <Text id="sloc" text="{LocationID}" />
+                            <Text id="slocName" text="{LocationName}" />
+
+                        </cells>
+                    </ColumnListItem>
+                 
+                </items>
+            </Table>
+
+
+                </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

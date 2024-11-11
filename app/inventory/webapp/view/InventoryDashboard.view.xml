@@ -1,0 +1,115 @@
+<mvc:View controllerName="inventory.controller.InventoryDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    
+    <Page id="DashboardPage" title="Dashboard" titleAlignment="Center">
+        <l:VerticalLayout  width="100%" >
+            <l:BlockLayout background="Dashboard" >
+                <l:BlockLayoutRow >
+                    <l:BlockLayoutCell width="90%">
+                        <HBox class="flexBox" width="80%">
+                            <VBox>
+                                <Label  text="Select Date" />
+                                <DatePicker id="dateFilter"  class="filterData" width="150px" />
+                            </VBox>
+                            
+                            <VBox>  
+                                <Label  text=" Material Req No"/>
+                                <Input id="materialReqNoFilter"  class="filterData" width="150px"/>
+                            </VBox>
+                            <VBox> 
+                                <Label  text="Category"/>
+                                <Select id="categoryFilter"  class="filterData" width="150px"  forceSelection="false" items="{/Category}">
+                                    <core:Item key="{Type}" text="{Type}" />
+                                </Select>
+                            </VBox> 
+                            <!-- <VBox>
+                                <Label  text="Usability"/>
+                                <Select id="usabilityFilter"  class="filterData" width="150px" forceSelection="false">
+                                    <core:Item key="Usable" text="Usable" />
+                                    <core:Item key="Not Usable" text="Not Usable" />
+                                </Select>
+                            </VBox>  -->
+                            <VBox>
+                                <Label  text="Status"/>
+                                <Select id="statusFilter"  class="filterData" width="150px" forceSelection="false">
+                                    <core:Item key="Full Received" text="Full Received" />
+                                    <core:Item key="Partial" text="Partial" />
+                                    <core:Item key="Not Received" text="Not Received" />
+                                    <core:Item key="Check-in Pending" text="Check-in Pending" />
+                                </Select>
+                            </VBox>
+
+                            <HBox class="GoBtn">
+                                <Button text="Go" icon="sap-icon://process" press="onGoFilter"  type="Success"/>
+                                <Button text="Refresh" icon="sap-icon://refresh"  class="refreshBtn" press="onRefresh"  type="Neutral"/>
+                            </HBox>
+                        </HBox>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+                <l:BlockLayoutRow >
+                     <l:BlockLayoutCell width="90%">
+                        <Table id="inventoryDataTable" width="100%" items ="{path: '/rqMaterial',         sorter: {             path: 'reqNo',             descending: true         }     }" class="dashboardTable">
+                            <columns >
+                                <Column mergeDuplicates="true" >
+                                    <Text text="Material Req No." />
+                                </Column>
+                                <Column>
+                                    <Text text="Material Code" />
+                                </Column>
+                                <Column >
+                                    <Text text="Description" />
+                                </Column>
+                                <Column >
+                                    <Text text="Category" />
+                                </Column>
+                                <Column >
+                                    <Text text="Quantity" />
+                                </Column>
+                                <Column >
+                                    <Text text="Status" />
+                                </Column>
+                                <Column>
+                                    <Text text="Created By"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Created On"/>
+                                </Column>
+                                 <Column>
+                                    <Text text="View Details"/>
+                                </Column>
+                                <Column>
+                                    <Text text=" Export Details" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem1">
+                                    <cells>
+                                        <Text text="{path : 'reqNo', formatter:'.removeCommas'}"/>
+                                        <Text text="{MaterialCode}"/>
+                                        <Text text="{Description}"/>
+                                        <Text text="{Category}"/>
+                                        <HBox class="quantitybtn">
+                                        
+                                            <Text text="{Quantity}" />
+                                            <Button icon="sap-icon://slim-arrow-down" type="Transparent" press="onQuantity"/>
+                                        </HBox>
+                                        <Text text="{MatStatus}"/>
+                                        <Text text="User_A" />
+                                        <Text text="{createdAt}" />
+                                        <Button text="View"  type="Accept" press="onViewPress" />
+                                        <Button icon="sap-icon://download" text="Download" type="Neutral" press="onDownloadPress"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

@@ -1,0 +1,4 @@
+ID,Category,Description,MaterialCode,Parent_MaterialCode,Quantity
+1,C,Sub Steel Pipes,SC002,SC003,50
+2,B,Sub Brass Nuts,FI002,SC003,25
+3,A,Sub Bolts,BL002,SC003,100

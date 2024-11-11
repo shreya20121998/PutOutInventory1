@@ -1,0 +1,242 @@
+<mvc:View
+    controllerName="inventory.controller.InspectionTable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+>
+    <Page
+        id="secondPage12"
+        title="Material Inspection"
+        titleAlignment="Center"
+    >
+        <l:VerticalLayout
+            id="materialDetailsLayout"
+            width="100%"
+            visible="true"
+            class="tablelayout"
+        >
+            <l:BlockLayout
+                id="IDGenBlockLayout42"
+                background="Dashboard"
+            >
+                <l:BlockLayoutRow id="IDGenBlockLayoutRow22">
+                    <l:BlockLayoutCell
+                        id="IDGenBlockLayoutCell23"
+                        width="100%"
+                    >
+                        <Table
+                            id="materialTable"
+                            
+                         width="auto"
+                            class="borderedTable"
+                            mode="SingleSelectLeft"
+                            sticky="ColumnHeaders"
+                            noDataText="Loading ..."
+                            items="{materialData>/}"
+                        >
+                            <columns>
+                                <Column
+                                    id="IDGenColu1"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabel2"
+                                        text="Request No."
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenColun2"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabel3"
+                                        text="Initial MCode"
+                                    />
+                                </Column>
+                                <Column  >
+                                <Label text="Final MCode"></Label>
+                                </Column>
+                                <Column
+                                    id="IDGenColun3"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabel5"
+                                        text="Category"
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenColum"
+                            
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabel4"
+                                        text="Description"
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenColum1"
+                                 
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabe4"
+                                        text="Quantity"
+                                        required="true"
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenColm1"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLab4"
+                                        text="Status"
+                                        required="true"
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenColu"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabee4"
+                                        text="Remarks"
+                                        required="true"
+                                    />
+                                </Column>
+                                <Column
+                                    id="IDGenClum"
+                                  
+                                    hAlign="Center"
+                                >
+                                    <Label
+                                        id="IDGenLabee6"
+                                        text=""
+                                    />
+                                </Column>
+                            </columns>
+                            <ColumnListItem
+                                id="istItem1"
+                                class="borderedRow"
+                                press="onMaterialRowSelect"
+                            >
+                                <cells>
+                                    <Input
+                                        id="IDGenText19"
+                                        editable="false"
+                                        class="inputItem"
+                                        textAlign="Center"
+                                        value="{materialData>reqNo}"
+                                    />
+                                    <Input
+                                        id="IDGenText20"
+                                        editable="false"
+                                        class="inputItem"
+                                        textAlign="Center"
+                                        value="{materialData>MaterialCode}"
+                                    />
+                                    <Input value="{materialData>f_MaterialCode}" editable="false" />
+                                    <Input
+                                        id="IDGenText21"
+                                        editable="false"
+                                        class="inputItem"
+                                        textAlign="Center"
+                                        value="{materialData>Category}"
+                                        showValueHelp="true"
+                                        valueHelpRequest="showCategoryValueHelp"
+                                    />
+                                    <Input
+                                        id="IDGenText22"
+                                        editable="false"
+                                        class="inputItem"
+                                        textAlign="Center"
+                                        value="{materialData>Description}"
+                                    />
+                                    <Input
+                                        id="IDGenText23"
+                                        editable="true"
+                                        class="inputItem"
+                                        textAlign="Center"
+                                        value="{materialData>Quantity}"
+                                        change="quantityChange"
+                                    />
+
+                                    <Select
+                                        id="selectStatus"
+                                        forceSelection="false"
+                                        width="250px"
+                                        class="sapUiSmallMarginEnd"
+                                        selectedKey="{materialData>Status}"
+                                        change="_onStatusTypeChange"
+                                        items="{path: '/Material_Status'}"
+                                    >
+                                        <core:Item
+                                            key="{Description}"
+                                            text="{Description}"
+                                        />
+                                    </Select>
+
+                                    <Input
+                                        id="IDGenText24"
+                                        editable="true"
+                                        class="inputItem"
+                                        value="{materialData>Remarks}"
+                                    />
+
+                                    <Button
+                                        id="subButton"
+                                        text="SubComponent"
+                                        press="onMaterialRowSelect"
+                                        type="Emphasized"
+                                    />
+                                </cells>
+                            </ColumnListItem>
+                        </Table>
+                        <HBox
+                            id="sendBtnBox1"
+                            class="submitBtnBox sapUiTinyMarginTop"
+                        >
+                          <Button
+                                id="changeCategoryBtn"
+                                text="Change Category"
+                                press="onPressChangeCategory"
+                                type="Attention"
+                                class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+                                
+                    
+                            />
+                            <Button
+                                id="newCodeGenerationBtn"
+                                text="Generate new Code"
+                                press="onGenerateNewCode"
+                                type="Attention"
+                                visible="false"
+                                class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+                                
+                    
+                            />
+                            <Button
+                                id="sendButton1"
+                                text="Submit"
+                                type="Success"
+                                press="onSubmit"
+                                class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                            />
+                                <!-- press="_onMaterialSubmit" -->
+                        </HBox>
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

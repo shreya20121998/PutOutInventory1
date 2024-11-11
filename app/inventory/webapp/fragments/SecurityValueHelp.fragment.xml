@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="SecurityGateinValueHelp"
+        noDataText="Loading..."
+        title="Select Material Request No."
+        search="onValueHelpSearch"
+        liveChange="onValueHelpSearch"
+        confirm="onValueHelpClosevoy"
+        cancel="onValueHelpClosevoy"
+            items="{
+        path: '/serviceRequest',
+        sorter: {
+            path: 'reqNo',
+            descending: true
+        },
+           filters: [
+            {
+                path: 'reqStatus',
+                operator: 'NE', 
+                value1: 'Inspection Completed'
+            }
+        ]
+        
+    }"
+        initialFocus="SearchField">
+        <StandardListItem 
+            id="IDGenStandardListItem"
+            title="{parts: [{path: 'reqNo'}], formatter: '.removeCommas'}"
+            description=""
+            iconDensityAware="false"
+            iconInset="false"
+            type="Active" />
+    </SelectDialog>
+</core:FragmentDefinition>

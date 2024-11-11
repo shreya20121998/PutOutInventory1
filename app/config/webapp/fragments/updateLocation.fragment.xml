@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="updateMaterialStatusDialog2"
+        class="sapUiContentPadding"
+        contentWidth="20%"
+       
+        title="Update Storage Location"
+        afterClose="handleValueHelpClose2">
+
+        <VBox>
+            <Label text="Status Code"></Label>
+            <Input id="sloc2" value="{slocModel>/LocationID}" editable="false" ></Input>
+            <Label text="Staus Description"></Label>
+            <Input id="slocName2" value="{slocModel>/LocationName}"></Input>
+        </VBox>
+
+        <beginButton>
+            <Button text="Update" type="Accept" press="onUpdate"  />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" type="Reject" press="handleValueHelpClose2" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

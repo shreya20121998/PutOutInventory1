@@ -1,0 +1,223 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "inventory",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.1",
+      "toolsId": "5f1e420d-b6c4-4deb-9b55-997236a295c3"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/inventory/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "inventory-manage": {
+          "semanticObject": "inventory",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.128.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "inventory.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "inventory.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteInventoryMain",
+          "pattern": ":?query:",
+          "target": [
+            "TargetInventoryMain"
+          ]
+        },
+        {
+          "name": "RouteMaterialInventoryRecord",
+          "pattern": "MaterialRecord",
+          "target": [
+            "TargetMaterialInventoryRecord"
+          ]
+        },
+        {
+          "name": "RouteDashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "TargetInventoryDashboard"
+          ]
+        },
+        {
+          "name": "RouteWarehouseMain",
+          "pattern": "SecurityGateIn",
+          "target": [
+            "TargetRouteSecurityGateIn"
+          ]
+        },
+        {
+          "name": "RouteGateMaterial",
+          "pattern": "gateMaterial",
+          "target": [
+            "TargetRouteGateMaterial"
+          ]
+        },
+        {
+          "name": "RouteInspection",
+          "pattern": "Inspection",
+          "target": [
+            "TargetRouteInspection"
+          ]
+        },
+        {
+          "name": "RouteInspectionTable",
+          "pattern": "InspectionTable",
+          "target": [
+            "TargetRouteInspectionTable"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetInventoryMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "InventoryMain",
+          "viewName": "InventoryMain"
+        },
+        "TargetMaterialInventoryRecord": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MaterialInventoryRecord",
+          "viewName": "MaterialInventoryRecord"
+        },
+        "TargetInventoryDashboard": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "InventoryDashboard",
+          "viewName": "InventoryDashboard"
+        },
+        "TargetRouteSecurityGateIn": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SecurityGateIn",
+          "viewName": "SecurityGateIn"
+        },
+        "TargetRouteGateMaterial": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SecurityGateInMaterial",
+          "viewName": "SecurityGateInMaterial"
+        },
+        "TargetRouteInspection": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Inspection",
+          "viewName": "Inspection"
+        },
+        "TargetRouteInspectionTable": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "InspectionTable",
+          "viewName": "InspectionTable"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "inventory.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
+    "sap.cloud": {
+      "public": true,
+      "service": "putoutinventory-srv"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "putoutinventoryCloudSrv"
+  }
+}
